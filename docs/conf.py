@@ -1,13 +1,14 @@
+from __future__ import annotations
+
 import importlib
 import pathlib
 
-author = "Eurika Kaiser and Brian de Silva"
+author = "Shaowu Pan, Eurika Kaiser and Brian de Silva"
 project = "pykoopman"  # package name
-
 
 # no need to edit below this line
 
-copyright = f"2020, {author}"
+copyright = f"2023, {author}"
 
 module = importlib.import_module(project)
 version = release = getattr(module, "__version__")
@@ -17,6 +18,8 @@ version = release = getattr(module, "__version__")
 master_doc = "index"
 
 extensions = [
+    "nbsphinx",
+    "sphinx_codeautolink",
     "sphinxcontrib.apidoc",
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
@@ -35,7 +38,7 @@ autodoc_default_options = {"members": True}
 autodoc_member_order = "bysource"
 autoclass_content = "init"
 
-language = None
+language = "en"
 
 here = pathlib.Path(__file__).parent
 
@@ -66,7 +69,9 @@ example_gallery_config = dict(
     examples_dirs=["../examples"],
     gallery_dirs=["examples"],
     pattern=".+.ipynb",
+    urls="https://github.com/dynamicslab/pykoopman/blob/master/examples",
 )
+
 
 intersphinx_mapping = {
     "derivative": ("https://derivative.readthedocs.io/en/latest/", None)

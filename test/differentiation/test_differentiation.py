@@ -1,8 +1,9 @@
-"""Tests for differentiation methods."""
+"""Tests for pykoopman.differentiation methods."""
+from __future__ import annotations
+
 import numpy as np
 import pytest
 from derivative import dxdt
-
 from pykoopman.differentiation import Derivative
 
 
@@ -18,7 +19,7 @@ def data_1D_quadratic():
 @pytest.fixture
 def data_1D_bad_shape():
     t = np.linspace(0, 5, 100)
-    x = t ** 2
+    x = t**2
     x_dot = 2 * t
 
     return x, t, x_dot
@@ -28,8 +29,8 @@ def data_1D_bad_shape():
 def data_2D_quadratic():
     t = np.linspace(0, 5, 100)
     x = np.zeros((len(t), 2))
-    x[:, 0] = t ** 2
-    x[:, 1] = -(t ** 2)
+    x[:, 0] = t**2
+    x[:, 1] = -(t**2)
 
     x_dot = np.zeros_like(x)
     x_dot[:, 0] = 2 * t
@@ -91,3 +92,6 @@ def test_accuracy(data):
 
     # Ignore endpoints
     np.testing.assert_allclose(x_dot[1:-1], x_dot_method[1:-1])
+
+    method.set_params()
+    method.get_params()

@@ -8,6 +8,11 @@ docs/examples
 # virtual environment
 venv
 
+# eggs
+.eggs
+
+dev
+
 **/*cache*
 
 .coverage
@@ -20,6 +25,8 @@ docs/_build
 
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+*/lightning_logs/*
+lightning_logs
 .DS_Store
 .vscode
 
@@ -30,3 +37,5 @@ docs/_build
 Pipfile
 Pipfile.lock
 /htmlcov/
+
+*~
